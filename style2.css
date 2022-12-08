@@ -1,0 +1,101 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(25, 134, 134);
+}
+.container{
+    width: 27pc;
+    height: 30pc;
+    border-collapse: collapse;
+    margin-left: 90px;
+    box-shadow: 0 0 30px ;
+    border-radius: 5px;
+}
+.btn{
+    background-color: orange;
+}
+.parent{
+    display: flex;
+    height: 37pc;
+    width: 65pc;
+    margin-top: 20px;
+    box-shadow: 0 0 10px ;
+    background-color: white;
+    border-radius: 5px;
+}
+.child{
+    height: 30pc;
+    width: 27pc;
+    position: relative;
+    margin-left: -150px;
+    background-image: url(./illustration-web-development-different-programming-languages.png);
+    background-position: center;
+    box-shadow: 0 0 30px ;
+    border-radius: 5px;
+}
+.move{
+    width: 20pc !important;
+    background-color: rgb(231, 229, 225);
+}
+.div{
+ 
+    height: 37pc;
+    width:29pc;
+    float: right;
+}
+div img{
+    float: right;
+    height: 37pc;
+    width: 33pc; 
+    filter: blur(4px);
+}
+@media (max-width:700px) {
+
+    body{
+        background-color: rgb(25, 134, 134);
+    }
+    .container{
+        width: 16pc;
+        height: 30pc;
+        border-collapse: collapse;
+        margin-left: 16px;
+        box-shadow: 0 0 30px ;
+    }
+    .parent{
+        display: flex;
+        height: 35pc;
+        width: 18pc;
+        margin-top: 20px;
+        box-shadow: 0 0 10px ;
+        background-color: white;
+    }
+    .child{
+        height: 30pc;
+        width: 10pc;
+
+    }
+    .move{
+        width: 14pc !important;
+        font-size: 13px;
+        background-color: rgb(231, 229, 225);
+    }
+    .btn{
+        color: white;
+    }
+    .div{
+        display: none;
+        height: 37pc;
+        width:18pc;
+        float: right;
+    }
+    div img{
+        float: right;
+        height: 37pc;
+        width: 33pc; 
+        filter: blur(4px);
+    }
+    
+}

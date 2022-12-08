@@ -1,0 +1,131 @@
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background:rgba(255, 136, 0,0.3) ; 
+    }
+    #style{
+        height: 34pc;
+        width: 27pc;
+    }
+    .class{
+        background-color: white;
+        box-shadow: 0 0  20px #DE791E;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;   
+    }
+    h2{
+        color: orange;
+    }
+    .btn{
+        background-image: linear-gradient(to top,#EA5A6F,#DE791E,#FCCF3A);
+    }
+    section{
+        margin-left:18pc ;
+    }
+    .move{
+        background-color: rgb(231, 229, 225);
+    }
+    .parent
+    {
+        display: flex;
+        margin: auto;
+        align-items: center;
+        
+    }
+    .child{
+    
+        height: 34pc;
+        width: 27pc;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        
+
+    }
+    img{
+        width: 27pc;
+        height: 34pc;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        box-shadow: 0 0 10px #DE791E;
+        
+    }
+    .loading{
+        
+        margin: auto;
+        border-radius: 50%;
+        border: 4px solid black;
+        border-top: 4px solid white;
+        height: 2pc;
+        width: 2pc;
+        animation: rotate 1s  linear infinite;
+
+    }
+    @keyframes rotate {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+        
+    }
+@media (max-width:688px) {
+   
+        body{
+            background:rgba(255, 136, 0,0.3) ; 
+        }
+        #style{
+            height: 32pc;
+            width: 500pc;
+            margin-left:2pc;
+        }
+        .class{
+            background-color: white;
+            box-shadow: 0 0  20px #DE791E;
+            border-radius: 10px;
+ 
+        }
+        .move{
+            width: 15pc !important;
+            background-color: rgb(231, 229, 225);
+            box-shadow: 0 0 5px rgb(224, 168, 168);
+        }
+        h2{
+            color: orange;
+        }
+        .btn{
+            background-image: linear-gradient(to top,#EA5A6F,#DE791E,#FCCF3A);
+        }
+        section{
+            margin-left:-1pc;
+        }
+        .parent
+        {
+            
+            margin: auto;
+            align-items: center;
+        }
+    
+        .child{
+        
+            /* height: 34pc;
+            width: 20pc;
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px; */
+            
+        
+        }
+        img{
+            display: none;
+            /* width: 20pc;
+            height: 34pc;
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+            box-shadow: 0 0 10px #DE791E; 
+             */
+        
+    }
+}

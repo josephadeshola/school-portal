@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./bootstrap-5.2.2-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="./style2.css">
+    
+    </head>
+    <body>
+        <center>
+            <div class="parent">
+            <div class=" container border border-1  mt-5">
+            <h4 class="mt-3">Sign in page</h4>
+            <div id="alertmsg"></div>
+            <input class="move form-control mt-5 w-50" type="text" placeholder="Enter your email" id="email">
+            <input class="move form-control mt-4 w-50" type="password" placeholder="Enter your password" id="pass">
+            <button class=" form-control w-50 mt-5 mb-5 btn btn-warning shadow-sm" onclick="signIn()"> Sign in</button>
+           </div>
+           <div class="div">
+               <img src="./illustration-web-development-different-programming-languages.png" alt="">
+               <div class="child mt-5"></div>
+            </div>
+        </div>
+        </center>
+
+        <script>
+
+        function showAlart(msg,className){
+          alertmsg.innerText=msg
+          alertmsg.className=className  
+       }
+
+        var allstudent = JSON.parse( localStorage.getItem('localstudent'))
+        console.log(allstudent)
+        function signIn(){
+            var userEmail= email.value
+            var userpassword= pass.value
+
+            if(!userEmail || !userpassword){
+                showAlart("Kindly enter your details","alert  alert-danger")
+                setTimeout(()=>{
+                    alertmsg.className  = ""
+                    alertmsg.innerText = ""
+                },3000) 
+            }
+
+          else{
+
+            var found = false   
+            for (let index = 0; index < allstudent.length; index++) {
+            if(allstudent[index].Email== userEmail && allstudent[index].password== userpassword){
+            localStorage.setItem('currentuser',index)
+            
+            found=true
+            break;
+            }
+        }
+        if(found==true){
+            window.location.href="dash.html"
+        }
+       
+        else{
+            showAlart("incorrect details","alert alert-danger")
+                setTimeout(()=>{
+
+                },3000)
+        }
+          }
+           
+
+    }
+        </script>
+</body>
+</html>

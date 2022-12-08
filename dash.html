@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="/bootstrap-5.2.2-dist/css/bootstrap.css">
+    </head>
+<body onload="reLoad()">
+    <div id="alertmsg"></div>
+    <!-- <h1>DASHBOARD</h1> -->
+    <div id="disp">
+      
+    </div>
+    <table  class=" mx-auto table table-striped text-center " id="myTable" >
+      
+    </table>
+    
+    <script>
+         function showAlart(msg,className){
+          alertmsg.innerText=msg
+          alertmsg.className=className  
+       }
+        function reLoad(){
+            showAlart("successful","alert  alert-primary")
+                setTimeout(()=>{
+                alertmsg.className  = ""
+                alertmsg.innerText = ""
+                },3000)
+        }
+   
+        var allStudent =  JSON.parse(localStorage.getItem('localstudent'))
+        displayUser()
+            function displayUser(){
+            myTable.innerHTML = ''
+            myTable.innerHTML = `
+                    <tr>
+                        <th>S/N</th>
+                        <th>firstname</th>
+                        <th>lastname</th>
+                        <th>email</th>
+                        <th>password</th>
+                        <th>Action</th>
+                    </tr>
+            `
+            for (let index = 0; index < allStudent.length; index++) {
+                myTable.innerHTML += `
+                        <tr>
+                        <td class="mb-3">${index+1}</td>
+                        <td class="mb-3">${allStudent[index].firstname}</d>
+                        <td class="mb-3">${allStudent[index].lastname}</td>
+                        <td class="mb-3">${allStudent[index].Email}</td>
+                        <td class="m">${allStudent[index].password}</td>
+                        <td>
+                        <button onclick="deleteUser(${index})" class="btn btn-danger">Delete user</button>
+                        <button  onclick="editUser(${index})" class="btn btn-warning">Edit user</button>
+                        </td>
+                    </tr>
+                        `
+                        }
+                    
+                    }
+                    
+                    function deleteUser(more){
+                        allStudent.splice(more,1)
+                        localStorage.setItem('localstudent',JSON.stringify(allStudent))
+                        displayUser()
+                    }
+                        function editUser(userEdit){
+                            let editStudent=allStudent[userEdit]
+                            disp.innerHTML=`
+                            <div class="container">
+                                <div class="row">
+                                <div class="col-5 mx-auto shadow-sm">
+                            <input type="text" class="form-control mt-3" value=${editStudent.firstname} placeholder="Enter your firstname" id="pfirst">
+                            <input type="text" class="form-control mt-3" value=${editStudent.lastname} placeholder="Enter your lastname" id="plast">
+                            <input type="text" class="form-control mt-3" value=${editStudent.Email} placeholder="Enter your email" id="pemail">
+                            <input type="password" class="form-control mt-3" value=${editStudent.password} placeholder="Enter your password" id="ppassword">
+                            <button class="btn btn-primary btn-md w-100 my-4" onclick="update(${userEdit})">edit</button>
+                            </div>
+                            </div>
+                            </div>
+                          `                 
+                    }
+                    function update(change){
+                        var studentchange={
+                            firstname:pfirst.value,
+                            lastname:plast.value,
+                            Email:pemail.value,
+                            password:ppassword.value
+                        }
+                        allStudent.splice(change,1,studentchange)
+                    // allStudent=allStudent.filter((student,index)=>index!=change)
+                    //      allS=[]
+                    // for(let index=0;index<allStudent.length;index++){
+                    //     if(index!=change){
+                    //         allStudent.push(allStudent[index])
+                    //     }
+                    // }
+                        localStorage.setItem('localStudent',JSON.stringify(change))
+                        disp.innerHTML=""
+                        displayUser()
+
+                    }
+
+            
+                
+
+            
+    
+                    
+                    
+                
+            
+        
+        </script>
+</body>
+</html>

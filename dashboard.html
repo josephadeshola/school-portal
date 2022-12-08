@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-5.2.2-dist/css/bootstrap.css">
+</head>
+<body>
+    
+    <div align="center" id="edit"></div>
+  <table  class=" mx-auto table table-striped text-center  " id="myTable" >
+        <tr>
+            <th>S/N</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>email</th>
+            <th>password</th>
+            <th>Action</th>
+        </tr>
+    </table>
+<script>
+    var local=  JSON.parse(localStorage.getItem('localstudent'))
+    batMan()
+
+    function batMan() {
+        if (localStorage.localstudent) {
+            var local=  JSON.parse(localStorage.getItem('localstudent'))
+            allStudent = local
+        }
+        for (let index = 0; index < allStudent.length; index++) {
+                    console.log(local[index])
+                    myTable.innerHTML+=
+                     `
+                    <tr>
+                    <td>${index}</td>
+                    <td>${local[index].firstname}</d>
+                    <td>${local[index].lastname}</td>
+                    <td>${local[index].Email}</td>
+                    <td>${local[index].password}</td>
+                    <th>
+                    <button onclick="deleteUser(${index})" class="btn btn-danger">Delete user</button>
+                    <button  onclick="editUser(${index})" class="btn btn-warning">Edit user</button>
+                    </th>
+                 </tr>
+    
+                `}
+               }
+                function deleteUser(del){
+                    allStudent.splice(del,1)
+                    localStorage.setItem('localstudent',JSON.stringify(allStudent))
+                    console.log(allStudent)
+                    batMan()         
+              }
+              function editUser(eindex){
+                edit.innerHTML=`
+                
+        <input type="text" class="form-control w-50 mb-2" placeholder="Enter your firstname" id="fn">
+        <input type="text" class="form-control w-50 mb-2" placeholder="Enter your lastname" id="In">
+        <input type="text" class="form-control w-50 mb-2" placeholder="Enter your email" id="em">
+        <input type="text" class="form-control w-50 mb-2" placeholder="Enter your password" id="pass">
+        <button onclick="update(${eindex})" class="btn btn-warning w-50 mb-2 ">updata details</button>
+                `
+                fn.value=allStudent[eindex].firstname
+                In.value=allStudent[eindex].lastname
+                em.value=allStudent[eindex].Email
+                pass.value=allStudent[eindex].password
+
+              }
+              function updata(upindex){
+                 var newData={
+                    firstname:fn.value,
+                    lastname:In.value,
+                    Email:em.value,
+                    password:pass.value
+                 }
+                 allStudent.splice(updata,1,newData)
+                 localStorage.setItem('localstudent', JSON.stringify(allStudent))
+                 console.log(updata)
+                 batMan()
+                 edit.innerHTML=""
+              }
+
+    </script>
+</body>
+</html>

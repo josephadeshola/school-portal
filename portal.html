@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./bootstrap-5.2.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+<section>
+        <center>          
+        <div class="parent  mt-4">
+        <div id="style" class="class  mt-2 ">
+        <h2 align="center" class="  mt-3 mb-5">sign up Page</h2>
+        <input type="text" class="move form-control mt-3 w-50 " placeholder="Enter firstname" id="fn">
+        <input type="text" class="move form-control mt-3 w-50 " placeholder="Enter lastname" id="ln">
+        <input type="text" class="move form-control mt-3 w-50 " placeholder="Email" id="em">
+        <input type="password" class="move form-control mt-3 w-50 " placeholder="password" id="pass">
+        <button class="mt-3 form-control btn w-50 shadow-sm" onclick="display()">Click to sign up <div class="loading" id="loading"></div> </button>
+        </div>
+        <div class="child mt-2">
+        <img  src="./ucl-social-media.jpg" alt="">
+        <!-- <img src="./illustration-web-development-different-programming-languages.png" alt=""> -->
+        <!-- <img src="https://www.lambdatest.com/resources/images/programmer/Quote1.png" alt=""> -->
+        </div>
+        </div>
+        </center>
+ 
+</section>
+
+
+
+    <script>
+        var allStudent= []
+        console.log(allStudent)
+        function display(){
+            if(fn.value=="" || ln.value=="" || em.value=="" || pass.value=="" ){
+            alert("input your details")
+        }
+        else if  (localStorage.localstudent.loading){
+           
+         var oldData = JSON.parse( localStorage.getItem("localstudent"))
+         allStudent=oldData
+
+          
+         var student= {
+             firstname:fn.value,
+             lastname:ln.value,
+             Email:em.value,
+             password:pass.value
+
+         }
+         allStudent.push(student);
+         // console.log(allStudent);
+         // alert("is working");
+         localStorage.setItem('localstudent',JSON.stringify(allStudent));
+         window.location.href="signin.html"
+         
+     } 
+    //  else{
+
+    //  }
+        }
+        
+
+       
+    
+        
+    </script>
+</body>
+</html>
