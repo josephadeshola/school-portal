@@ -48,25 +48,28 @@
                 `}
                }
                 function deleteUser(del){
-                    allStudent.splice(del,1)
-                    localStorage.setItem('localstudent',JSON.stringify(allStudent))
-                    console.log(allStudent)
-                    batMan()         
+                    if(allStudent.length==0){
+                     alert("no user")
+                    }
+                    else {
+
+                        allStudent.splice(del,1)
+                        localStorage.setItem('localstudent',JSON.stringify(allStudent))
+                        console.log(allStudent)
+                        batMan()         
+                    }
               }
               function editUser(eindex){
-                edit.innerHTML=`
-                
-        <input type="text" class="form-control w-50 mb-2" placeholder="Enter your firstname" id="fn">
-        <input type="text" class="form-control w-50 mb-2" placeholder="Enter your lastname" id="In">
-        <input type="text" class="form-control w-50 mb-2" placeholder="Enter your email" id="em">
-        <input type="text" class="form-control w-50 mb-2" placeholder="Enter your password" id="pass">
-        <button onclick="update(${eindex})" class="btn btn-warning w-50 mb-2 ">updata details</button>
+                var allday = allstudent[userEdit]
+                disp.innerHTML=
                 `
-                fn.value=allStudent[eindex].firstname
-                In.value=allStudent[eindex].lastname
-                em.value=allStudent[eindex].Email
-                pass.value=allStudent[eindex].password
-
+                
+                   <input type="text" class="form-control w-50 mb-2" value="${allday}" placeholder="Enter your firstname" id="fn">
+                   <input type="text" class="form-control w-50 mb-2" value="${allday}" placeholder="Enter your lastname" id="In">
+                   <input type="text" class="form-control w-50 mb-2" value="${allday}" placeholder="Enter your email" id="em">
+                   <input type="text" class="form-control w-50 mb-2" value="${allday}" placeholder="Enter your password" id="pass">
+                   <button onclick="update(${eindex})" class="btn btn-warning w-50 mb-2 ">updata details</button>
+                `
               }
               function updata(upindex){
                  var newData={

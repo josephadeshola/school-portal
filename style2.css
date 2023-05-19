@@ -58,16 +58,17 @@ div img{
         background-color: rgb(25, 134, 134);
     }
     .container{
-        width: 16pc;
-        height: 30pc;
+        width: 23pc;
+        height: 39pc;
         border-collapse: collapse;
         margin-left: 16px;
+       padding-top: 8pc;
         box-shadow: 0 0 30px ;
     }
     .parent{
         display: flex;
-        height: 35pc;
-        width: 18pc;
+        height: 43pc;
+        width: 25pc;
         margin-top: 20px;
         box-shadow: 0 0 10px ;
         background-color: white;

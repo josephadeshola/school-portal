@@ -3,3 +3,50 @@
     margin: 0;
     box-sizing: border-box;
 }
+#desig{
+    background-color: rgb(161, 149, 149);
+}
+#design{
+    background-color: rgb(51, 43, 43);
+}
+.container{
+    background-image: linear-gradient(#EA5A6F,#DE791E,#FCCF3A) ;
+    border-radius: 1pc;
+    width: 29pc !important;
+    box-shadow: 0 0 17px;
+}
+.form-control{
+    background-image: linear-gradient( #e8c553,#f37995) ;
+    border: none !important;
+}
+@media (max-width:688px) {
+  
+    .container{
+        background-image: linear-gradient(#EA5A6F,#DE791E,#FCCF3A) ;
+        border-radius: 5px;
+        width: 23pc !important;
+        height: 17pc;
+        box-shadow: 0 0 17px;
+    } 
+    .form-control{
+        height: 30px;
+        background-image: linear-gradient( #e8c553,#f37995) ;
+        border: none !important;
+    }
+    .form-contro{
+        height: 30px;
+    }
+    .shor{
+        width: 4pc !important;
+        font-size: 6px;
+    }
+     .short{
+        font-size: 6px;
+     }
+     .Sort{
+        font-size: 6px !important;
+        width: 3pc;
+        height: 2pc;
+     }
+
+}
